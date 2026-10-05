@@ -1,0 +1,347 @@
+{
+ "results": [
+  {
+   "case": 1,
+   "name": "Pure U-238",
+   "n": 1000000,
+   "ratio": 0.0,
+   "N_atoms_per_cm3": [
+    0.0,
+    4.819209623147981e+22,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "k_inf": 0.23004557398855963,
+   "k_std": 0.0007726196002516649,
+   "abs_fraction": {
+    "U-235 fission": 0.0,
+    "U-235 capture": 0.0,
+    "U-238 fission": 0.082104,
+    "U-238 capture": 0.917896,
+    "H-1 capture": 0.0,
+    "H-2 capture": 0.0,
+    "O-16 capture": 0.0
+   },
+   "abs_in_fuel": 1.0,
+   "abs_in_moderator": 0.0,
+   "fission_to_capture_fuel": 0.08944804204397883,
+   "capture_to_fission_alpha": 11.179674559095782,
+   "fission_by_group": [
+    0.082104,
+    0.0,
+    0.0
+   ],
+   "capture_by_group": [
+    0.204197,
+    0.713699,
+    0.0
+   ],
+   "U235_fission_to_capture_thermal": null,
+   "frac_reaching_thermal": 0.0,
+   "mean_collisions_per_neutron": 44.756997,
+   "collisions_to_thermal": null,
+   "t_fast_mean_s": 5.087623600280207e-08,
+   "t_slowing_mean_s": 1.6950880298239946e-07,
+   "slowing_down_time_s": null,
+   "thermal_lifetime_s": null,
+   "lifetime_mean_s": 2.2038503898520218e-07,
+   "mean_birth_energy_MeV": 1.933814806262143
+  },
+  {
+   "case": 2,
+   "name": "Natural U (0.72% U-235)",
+   "n": 1000000,
+   "ratio": 0.0,
+   "N_atoms_per_cm3": [
+    3.470146533560078e+20,
+    4.784946497942286e+22,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "k_inf": 0.338570965605265,
+   "k_std": 0.0008961023663131422,
+   "abs_fraction": {
+    "U-235 fission": 0.044546,
+    "U-235 capture": 0.009245,
+    "U-238 fission": 0.081599,
+    "U-238 capture": 0.86461,
+    "H-1 capture": 0.0,
+    "H-2 capture": 0.0,
+    "O-16 capture": 0.0
+   },
+   "abs_in_fuel": 1.0,
+   "abs_in_moderator": 0.0,
+   "fission_to_capture_fuel": 0.1443546126073548,
+   "capture_to_fission_alpha": 6.927385152007609,
+   "fission_by_group": [
+    0.098448,
+    0.027697,
+    0.0
+   ],
+   "capture_by_group": [
+    0.202772,
+    0.671083,
+    0.0
+   ],
+   "U235_fission_to_capture_thermal": null,
+   "frac_reaching_thermal": 0.0,
+   "mean_collisions_per_neutron": 42.865443,
+   "collisions_to_thermal": null,
+   "t_fast_mean_s": 4.998583968684056e-08,
+   "t_slowing_mean_s": 1.5904004606376523e-07,
+   "slowing_down_time_s": null,
+   "thermal_lifetime_s": null,
+   "lifetime_mean_s": 2.0902588575060588e-07,
+   "mean_birth_energy_MeV": 1.9351008647347647
+  },
+  {
+   "case": 3,
+   "name": "2% enriched U + H2O",
+   "n": 1000000,
+   "ratio": 3.0,
+   "N_atoms_per_cm3": [
+    1.810136689801857e+20,
+    8.869669780029099e+21,
+    5.430410069405571e+22,
+    0.0,
+    2.7152050347027854e+22
+   ],
+   "k_inf": 1.269214386943051,
+   "k_std": 0.0012267768103464652,
+   "abs_fraction": {
+    "U-235 fission": 0.497843,
+    "U-235 capture": 0.084172,
+    "U-238 fission": 0.0199,
+    "U-238 capture": 0.311835,
+    "H-1 capture": 0.084432,
+    "H-2 capture": 0.0,
+    "O-16 capture": 0.001818
+   },
+   "abs_in_fuel": 0.91375,
+   "abs_in_moderator": 0.08625,
+   "fission_to_capture_fuel": 1.3074087074218383,
+   "capture_to_fission_alpha": 0.7648717606998068,
+   "fission_by_group": [
+    0.022385,
+    0.029772,
+    0.465586
+   ],
+   "capture_by_group": [
+    0.010673,
+    0.208516,
+    0.263068
+   ],
+   "U235_fission_to_capture_thermal": 5.923259926465911,
+   "frac_reaching_thermal": 0.728654,
+   "mean_collisions_per_neutron": 25.9199001843226,
+   "collisions_to_thermal": 18.60197981483667,
+   "t_fast_mean_s": 9.535856466869094e-09,
+   "t_slowing_mean_s": 1.2309324205969831e-06,
+   "slowing_down_time_s": 1.5408165337977785e-06,
+   "thermal_lifetime_s": 2.7483695026868426e-05,
+   "lifetime_mean_s": 2.1266572593171583e-05,
+   "eta_thermal": 1.7468045889096302,
+   "f_thermal": 0.8908864838455564,
+   "p": 0.728654,
+   "eps": 1.1193011211593158,
+   "mean_birth_energy_MeV": 1.9355054611270022
+  },
+  {
+   "case": 4,
+   "name": "Natural U + D2O",
+   "n": 1000000,
+   "ratio": 250.0,
+   "N_atoms_per_cm3": [
+    9.542718192553601e+17,
+    1.3158348085510021e+20,
+    0.0,
+    6.626887633717779e+22,
+    3.3134438168588894e+22
+   ],
+   "k_inf": 1.2134968285143115,
+   "k_std": 0.0012179374010515762,
+   "abs_fraction": {
+    "U-235 fission": 0.497778,
+    "U-235 capture": 0.084152,
+    "U-238 fission": 0.00041,
+    "U-238 capture": 0.378999,
+    "H-1 capture": 0.0,
+    "H-2 capture": 0.03047,
+    "O-16 capture": 0.008191
+   },
+   "abs_in_fuel": 0.961339,
+   "abs_in_moderator": 0.038661,
+   "fission_to_capture_fuel": 1.0756491943232338,
+   "capture_to_fission_alpha": 0.9296711281684825,
+   "fission_by_group": [
+    0.000439,
+    0.001229,
+    0.49652
+   ],
+   "capture_by_group": [
+    0.002971,
+    0.065175,
+    0.433666
+   ],
+   "U235_fission_to_capture_thermal": 5.9146138085481486,
+   "frac_reaching_thermal": 0.930186,
+   "mean_collisions_per_neutron": 388.71297354382693,
+   "collisions_to_thermal": 30.111078859496917,
+   "t_fast_mean_s": 2.391097243671752e-08,
+   "t_slowing_mean_s": 9.678942043115862e-06,
+   "slowing_down_time_s": 1.024458803612171e-05,
+   "thermal_lifetime_s": 0.004349197278499375,
+   "lifetime_mean_s": 0.004055265272713793,
+   "eta_thermal": 1.3522339912757153,
+   "f_thermal": 0.9613980429720508,
+   "p": 0.930186,
+   "eps": 1.003491653189363,
+   "mean_birth_energy_MeV": 1.936466408688743
+  }
+ ],
+ "theory": [
+  {
+   "f_thermal": 1.0,
+   "thermal_lifetime_s": 3.5196230240353604e-05,
+   "U235_fission_to_capture_thermal": null,
+   "xi_bar": 0.008378081521549285,
+   "collisions_to_thermal": 1787.839057097177,
+   "slowing_down_time_s": 0.0003939007131546974
+  },
+  {
+   "eta_thermal": 1.352911712339813,
+   "f_thermal": 1.0,
+   "thermal_lifetime_s": 1.2435306887617752e-05,
+   "U235_fission_to_capture_thermal": 5.928340332142335,
+   "xi_bar": 0.00837884773675587,
+   "collisions_to_thermal": 1787.675565706056,
+   "slowing_down_time_s": 0.0003938411998726314
+  },
+  {
+   "eta_thermal": 1.7482670472278807,
+   "f_thermal": 0.8909080875271058,
+   "thermal_lifetime_s": 2.7445058891730677e-05,
+   "U235_fission_to_capture_thermal": 5.928340332142335,
+   "xi_bar": 0.8511081989849455,
+   "collisions_to_thermal": 17.59900960375415,
+   "slowing_down_time_s": 1.6391675792348856e-06
+  },
+  {
+   "eta_thermal": 1.3529117123398129,
+   "f_thermal": 0.9610936954664206,
+   "thermal_lifetime_s": 0.004346082351465944,
+   "U235_fission_to_capture_thermal": 5.928340332142335,
+   "xi_bar": 0.5017625672154171,
+   "collisions_to_thermal": 29.852090104878837,
+   "slowing_down_time_s": 1.030430323099623e-05
+  }
+ ],
+ "analog": {
+  "3": {
+   "case": 3,
+   "name": "2% enriched U + H2O",
+   "n": 1000000,
+   "ratio": 3.0,
+   "N_atoms_per_cm3": [
+    1.810136689801857e+20,
+    8.869669780029099e+21,
+    5.430410069405571e+22,
+    0.0,
+    2.7152050347027854e+22
+   ],
+   "k_inf": 1.2695826658380072,
+   "k_std": 0.0012266892629395603,
+   "abs_fraction": {
+    "U-235 fission": 0.49828,
+    "U-235 capture": 0.083858,
+    "U-238 fission": 0.019641,
+    "U-238 capture": 0.311809,
+    "H-1 capture": 0.084532,
+    "H-2 capture": 0.0,
+    "O-16 capture": 0.00188
+   },
+   "abs_in_fuel": 0.9135880000000001,
+   "abs_in_moderator": 0.086412,
+   "fission_to_capture_fuel": 1.3089820480353427,
+   "capture_to_fission_alpha": 0.7639524174536272,
+   "fission_by_group": [
+    0.022239,
+    0.029696,
+    0.465986
+   ],
+   "capture_by_group": [
+    0.010613,
+    0.208412,
+    0.263054
+   ],
+   "U235_fission_to_capture_thermal": 5.939229406441581,
+   "frac_reaching_thermal": 0.72904,
+   "mean_collisions_per_neutron": 25.517911,
+   "collisions_to_thermal": 18.598060463074727,
+   "t_fast_mean_s": 9.538967428055233e-09,
+   "t_slowing_mean_s": 1.2306838797089301e-06,
+   "slowing_down_time_s": 1.5397154064755525e-06,
+   "thermal_lifetime_s": 2.747140017262399e-05,
+   "lifetime_mean_s": 2.1267972428986596e-05,
+   "eta_thermal": 1.7476134400983432,
+   "f_thermal": 0.8907673104356414,
+   "p": 0.72904,
+   "eps": 1.1186648188687176,
+   "mean_birth_energy_MeV": 1.934665072443888
+  },
+  "4": {
+   "case": 4,
+   "name": "Natural U + D2O",
+   "n": 1000000,
+   "ratio": 250.0,
+   "N_atoms_per_cm3": [
+    9.542718192553601e+17,
+    1.3158348085510021e+20,
+    0.0,
+    6.626887633717779e+22,
+    3.3134438168588894e+22
+   ],
+   "k_inf": 1.2144770845623543,
+   "k_std": 0.0012179287794801107,
+   "abs_fraction": {
+    "U-235 fission": 0.498186,
+    "U-235 capture": 0.0842,
+    "U-238 fission": 0.000408,
+    "U-238 capture": 0.37877,
+    "H-1 capture": 0.0,
+    "H-2 capture": 0.030227,
+    "O-16 capture": 0.008209
+   },
+   "abs_in_fuel": 0.9615640000000001,
+   "abs_in_moderator": 0.038436,
+   "fission_to_capture_fuel": 1.0769466704106099,
+   "capture_to_fission_alpha": 0.9285510856528557,
+   "fission_by_group": [
+    0.000437,
+    0.001165,
+    0.496992
+   ],
+   "capture_by_group": [
+    0.002924,
+    0.064853,
+    0.433629
+   ],
+   "U235_fission_to_capture_thermal": 5.918332837153915,
+   "frac_reaching_thermal": 0.930621,
+   "mean_collisions_per_neutron": 395.552787,
+   "collisions_to_thermal": 30.103270826684547,
+   "t_fast_mean_s": 2.3883339129299733e-08,
+   "t_slowing_mean_s": 9.676672728324109e-06,
+   "slowing_down_time_s": 1.0237604667805581e-05,
+   "thermal_lifetime_s": 0.004342816758331856,
+   "lifetime_mean_s": 0.004051217030523001,
+   "eta_thermal": 1.352636122315573,
+   "f_thermal": 0.9615761948204479,
+   "p": 0.930621,
+   "eps": 1.0033484681213503,
+   "mean_birth_energy_MeV": 1.9323677730113349
+  }
+ }
+}
