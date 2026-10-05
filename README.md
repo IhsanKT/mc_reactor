@@ -1,54 +1,114 @@
-# CH 5960 Assignment 1 — Monte Carlo reactor physics
+# Monte Carlo Neutron Simulation (CH 5960, Assignment 1)
 
-## Files
-| File | What it is |
+This project follows neutrons one at a time through four reactor materials. From that it works out
+**k∞**, the average number of new neutrons each neutron produces.
+If k∞ is above 1, the material can sustain a chain reaction.
+
+## The simulations have already been run
+
+You do **not** need to run anything to see the results. Both runs are done, and all four cases are
+included:
+
+| Run | Neutrons per case | Results folder |
+|---|---|---|
+| Quick run | 1 million | [`results_1e6/`](results_1e6/) |
+| Full run | 1 billion | [`results_1e9/`](results_1e9/) |
+
+To see the results, open [`results_1e9/summary.md`](results_1e9/summary.md) for all the numbers and
+the `fig1` … `fig6` images in the same folder for the plots.
+
+## Results (1 billion neutrons per case)
+
+| Case | k∞ | Chain reaction possible? |
+|---|---|---|
+| 1. Pure U-238 | 0.2299 | No |
+| 2. Natural uranium (0.72% U-235) | 0.3382 | No |
+| 3. 2% enriched uranium + light water (H₂O) | 1.2703 | **Yes** |
+| 4. Natural uranium + heavy water (D₂O) | 1.2140 | **Yes** |
+
+The uncertainty on each value is ±0.00004 or smaller.
+The 1 million run gives almost the same answers (for example, 1.2692 instead of 1.2703 for case 3).
+It is just a little less precise.
+
+## What's in this folder
+
+| File or folder | What it is |
 |---|---|
-| `xs_data.py` | Tabulated microscopic cross-sections (elastic, inelastic, capture, fission) for U-235, U-238, H-1, H-2, O-16 at E = (0.2, 0.4, 0.6, 0.8, 1.0)×10^y MeV, y = −8…1, plus U-238 resonance parameters and ν(E) |
-| `mc_reactor.py` | The Monte Carlo code (Numba, runs on all CPU cores in parallel, resumable) |
-| `analyze.py` | Makes the figures and the summary tables from the saved results |
-| `results_1e6/` | Already done: 1 million neutrons per case, figures + `summary.md` |
-| `results_1e6_analog/` | Validation run (thermal collisions followed one by one) |
-| `results_scan/scan.json` | k∞ vs moderator/uranium ratio (cases 3 and 4) |
+| `mc_reactor.py` | Runs the simulation |
+| `analyze.py` | Makes the plots and tables from the saved results |
+| `xs_data.py` | Nuclear data (cross-sections) that the simulation uses |
+| `results_1e6/` | Results with 1 million neutrons per case |
+| `results_1e9/` | Results with 1 billion neutrons per case |
+| `results_1e6_analog/` | An extra check of cases 3 and 4 using a slower, more detailed method |
+| `results_scan/` | How k∞ changes as more water is added (cases 3 and 4) |
 
-## Running the 1 billion neutron case
+Inside each results folder:
+- `summary.md` holds all the numbers in tables.
+- `fig1` … `fig6` are the plots.
+- `case1.npz` … `case4.npz` are the raw data saved by the simulation.
 
-**1. Install (once)**
+## Want to run it yourself?
+
+You only need this section if you want to repeat the runs or change something.
+
+### Step 1: Install the packages (once)
+
+You need Python 3.9 or newer. Then run:
+
 ```
 pip install numpy numba matplotlib
 ```
-(Python 3.9 or newer. Works on Windows, macOS and Linux.)
 
-**2. Run** — open a terminal in this folder and type:
-```
-python mc_reactor.py --n 1e9 --out results_1e9
-```
-- It uses every CPU core automatically and prints progress with an ETA after every 10 million neutrons.
-- Expected time: about **7–8 CPU-core-hours in total** for the four cases, i.e. roughly
-  **1 hour on an 8-core laptop**, ~2 hours on 4 cores, ~30 min on 16 cores.
-- **Safe to stop.** If you close it or press Ctrl-C, run the exact same command again and it continues
-  from the last checkpoint (results are saved every 10 million neutrons). The final answer is identical
-  to an uninterrupted run.
-- Plug the laptop in and stop it from sleeping while it runs.
-- You can split the work across two computers: `--cases 1 2` on one and `--cases 3 4` on the other,
-  both with `--out results_1e9`, then copy the four `caseN.npz` files into one folder.
+### Step 2: Try the quick run first (1 million neutrons)
 
-**3. Make the figures and tables**
-```
-python analyze.py results_1e9 --scan results_scan/scan.json --analog results_1e6_analog
-```
-This writes `fig1…fig6.png`, `summary.md`, `summary.json` and `xs_table.csv` into `results_1e9/`.
+Open a terminal in this folder and run:
 
-**4. Send back** the whole `results_1e9` folder (or just `summary.md` and the 4 `caseN.npz` files).
-
-## Other options
 ```
-python mc_reactor.py --n 1e6                       # 1 million per case (~15 s)
-python mc_reactor.py --scan                        # moderator-ratio scan
-python mc_reactor.py --n 1e6 --cases 3 4 --analog  # follow every thermal collision (slow, validation)
-python mc_reactor.py --threads 6 ...               # limit the number of cores used
+python mc_reactor.py --n 1e6 --out my_results_1e6
+python analyze.py my_results_1e6
 ```
 
-## Model summary
+This takes about 15 seconds. The very first run is a bit slower because the code is compiled first.
+When it finishes, open `my_results_1e6/summary.md`.
+
+> **Use a new folder name** such as `my_results_1e6`. If you give the name of a folder that already
+> has results (like `results_1e6`), the program sees that the work is already done and doesn't
+> run it again.
+
+### Step 3 (optional): The full run (1 billion neutrons)
+
+```
+python mc_reactor.py --n 1e9 --out my_results_1e9
+python analyze.py my_results_1e9 --scan results_scan/scan.json --analog results_1e6_analog
+```
+
+- It takes about **1 hour on an 8-core computer**, or about 2 hours on 4 cores.
+- Keep the computer plugged in and stop it from going to sleep.
+- It is safe to stop. If it stops, or you press Ctrl+C, run the same command again and it carries on
+  from where it left off.
+
+### Other things you can try
+
+```
+python mc_reactor.py --n 1e6 --cases 3 --out my_case3      # run only case 3
+python mc_reactor.py --scan --out my_scan                  # k∞ vs. amount of water
+python mc_reactor.py --n 1e6 --threads 4 --out my_test     # use only 4 CPU cores
+```
+
+## How the simulation works (short version)
+
+1. A neutron is born from fission with a random energy.
+2. It flies a random distance and then hits an atom.
+3. At each hit it either **bounces off** and loses some energy, or it is **absorbed**.
+   If it is absorbed by uranium, it may cause **fission**, which releases new neutrons.
+4. This repeats until the neutron is absorbed. The material is infinitely large, so no neutron escapes.
+5. **k∞ = (new neutrons from fission) ÷ (neutrons started)**
+
+Repeating this for millions or billions of neutrons makes the average very precise.
+
+<details>
+<summary>Technical details of the model</summary>
+
 - Infinite homogeneous medium (no leakage): k∞ = (ν-weighted fissions) / (neutrons started).
 - Birth energy sampled exactly from s(E) = 0.771 √E e^(−0.776E) (a Maxwellian with T = 1/0.776 MeV).
 - Distance to collision −ln ξ / Σt(E); nuclide and reaction chosen by Σx/Σt.
@@ -63,3 +123,5 @@ python mc_reactor.py --threads 6 ...               # limit the number of cores u
 - Energy groups: fast ≥ 0.1 MeV, slowing-down 0.625 eV – 0.1 MeV, thermal < 0.625 eV.
 - Uranium metal (19.05 g/cm³), H₂O (1.000 g/cm³), D₂O (1.105 g/cm³) mixed homogeneously.
   Case 3: 3 H₂O per U atom; case 4: 250 D₂O per U atom (both near the k∞ maximum of the scan).
+
+</details>
