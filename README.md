@@ -17,18 +17,34 @@ included:
 To see the results, open [`results_1e9/summary.md`](results_1e9/summary.md) for all the numbers and
 the `fig1` … `fig6` images in the same folder for the plots.
 
-## Results (1 billion neutrons per case)
+## Results
 
-| Case | k∞ | Chain reaction possible? |
-|---|---|---|
-| 1. Pure U-238 | 0.2299 | No |
-| 2. Natural uranium (0.72% U-235) | 0.3382 | No |
-| 3. 2% enriched uranium + light water (H₂O) | 1.2703 | **Yes** |
-| 4. Natural uranium + heavy water (D₂O) | 1.2140 | **Yes** |
+| Case | k∞ with 1 million neutrons | k∞ with 1 billion neutrons | Chain reaction possible? |
+|---|---|---|---|
+| 1. Pure U-238 | 0.2301 ± 0.0008 | 0.22992 ± 0.00002 | No |
+| 2. Natural uranium (0.72% U-235) | 0.3386 ± 0.0009 | 0.33816 ± 0.00003 | No |
+| 3. 2% enriched uranium + light water (H₂O) | 1.2692 ± 0.0012 | 1.27030 ± 0.00004 | **Yes** |
+| 4. Natural uranium + heavy water (D₂O) | 1.2135 ± 0.0012 | 1.21403 ± 0.00004 | **Yes** |
 
-The uncertainty on each value is ±0.00004 or smaller.
-The 1 million run gives almost the same answers (for example, 1.2692 instead of 1.2703 for case 3).
-It is just a little less precise.
+The two runs agree within their uncertainty. The 1 billion run is about 30 times more precise,
+which is why the number after ± is much smaller.
+
+### Where do the neutrons end up?
+
+![Where neutrons are absorbed in each case](results_1e9/fig4_absorption.png)
+
+In cases 1 and 2, most neutrons (87–92%) are captured by U-238 (yellow) without causing fission,
+so k∞ stays far below 1. When water is added (cases 3 and 4), it slows the neutrons down.
+About half of them then cause fission in U-235 (blue), which is why those two cases are above 1.
+
+### How much water is best?
+
+![k∞ against the amount of water per uranium atom](results_1e9/fig6_k_vs_ratio.png)
+
+Too little water and the neutrons are not slowed down enough. Too much water and the water itself
+absorbs too many neutrons. k∞ is highest in between. The ★ marks the mixture used in the main runs,
+which is close to the best point. A chain reaction is possible wherever the curve is above the
+dashed line at k∞ = 1.
 
 ## What's in this folder
 
